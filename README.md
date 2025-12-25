@@ -1,3 +1,51 @@
+# GitHub Issue Creator Plugin
+
+[![official JetBrains project](https://jb.gg/badges/official.svg)][jb:github]
+[![Twitter Follow](https://img.shields.io/badge/follow-%40JBPlatform-1DA1F2?logo=twitter)](https://x.com/JBPlatform)
+[![Build](https://github.com/JetBrains/intellij-platform-plugin-template/workflows/Build/badge.svg)][gh:build]
+
+![IntelliJ Platform Plugin Template][file:intellij-platform-plugin-template-dark]
+![IntelliJ Platform Plugin Template][file:intellij-platform-plugin-template-light]
+
+<!-- Plugin description -->
+**GitHub Issue Creator** is a JetBrains IntelliJ/PyCharm plugin that allows you to create GitHub issues directly from your IDE.
+
+## Features
+
+- **Auto-detect GitHub Repository**: Automatically detects the GitHub repository from your Git remote configuration
+- **Secure Token Storage**: Stores your GitHub Personal Access Token securely using IntelliJ's PasswordSafe
+- **Comprehensive Issue Creation**: Create issues with:
+  - Title
+  - Description/Body
+  - Labels
+  - Assignees
+  - Milestone
+- **Modular Architecture**: Clean package structure with separation of concerns (api, ui, auth, git)
+- **Error Handling**: Robust error handling throughout the plugin
+
+## Usage
+
+1. **Configure GitHub Token** (first time only):
+   - Go to `Tools > Create GitHub Issue`
+   - When prompted, enter your GitHub Personal Access Token
+   - Create a token at: https://github.com/settings/tokens (requires 'repo' scope)
+
+2. **Create an Issue**:
+   - Open a project with a GitHub repository
+   - Go to `Tools > Create GitHub Issue`
+   - Fill in the issue details
+   - Click OK to create the issue on GitHub
+
+## Architecture
+
+The plugin follows a modular structure:
+
+- `api/` - GitHub REST API client implementation
+- `ui/` - Dialog UI components
+- `auth/` - Authentication management with PasswordSafe
+- `git/` - Git repository detection
+- `actions/` - IntelliJ action implementations
+=======
 # GitHubIssue
 
 ![Build](https://github.com/tayjaybabee/GitHubIssue/workflows/Build/badge.svg)
