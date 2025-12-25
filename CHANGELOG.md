@@ -1,8 +1,21 @@
 <!-- Keep a Changelog guide -> https://keepachangelog.com -->
 
-# IntelliJ Platform Plugin Template Changelog
+# GitHub Issue Creator Changelog
 
 ## [Unreleased]
+
+### Added
+- Initial release of GitHub Issue Creator plugin
+- Auto-detect GitHub repository from Git remote (HTTPS and SSH URLs)
+- Secure GitHub Personal Access Token storage using IntelliJ's PasswordSafe
+- Create GitHub issues with title, description, labels, assignees, and milestone
+- Modular project structure with packages: api, ui, auth, git
+- "Create GitHub Issue" action in Tools menu
+- GitHub REST API client implementation
+- Comprehensive error handling
+- Support for loading repository labels and milestones
+
+[Unreleased]: https://github.com/tayjaybabee/GitHubIssue/commits/main
 
 ## [2.4.0] - 2025-11-25
 
