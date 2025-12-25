@@ -10,6 +10,10 @@ import git4idea.repo.GitRepositoryManager
  */
 object GitRepositoryDetector {
     
+    // Regex patterns for parsing GitHub URLs
+    private val HTTPS_PATTERN = """https://github\.com/([^/]+)/([^/\.]+)(?:\.git)?""".toRegex()
+    private val SSH_PATTERN = """git@github\.com:([^/]+)/([^/\.]+)(?:\.git)?""".toRegex()
+    
     /**
      * Data class to hold GitHub repository information
      */
@@ -65,15 +69,12 @@ object GitRepositoryDetector {
      * - git@github.com:owner/repo.git
      */
     private fun parseGitHubUrl(url: String): GitHubRepoInfo? {
-        val httpsPattern = """https://github\.com/([^/]+)/([^/\.]+)(?:\.git)?""".toRegex()
-        val sshPattern = """git@github\.com:([^/]+)/([^/\.]+)(?:\.git)?""".toRegex()
-        
-        httpsPattern.find(url)?.let { match ->
+        HTTPS_PATTERN.find(url)?.let { match ->
             val (owner, repo) = match.destructured
             return GitHubRepoInfo(owner, repo)
         }
         
-        sshPattern.find(url)?.let { match ->
+        SSH_PATTERN.find(url)?.let { match ->
             val (owner, repo) = match.destructured
             return GitHubRepoInfo(owner, repo)
         }

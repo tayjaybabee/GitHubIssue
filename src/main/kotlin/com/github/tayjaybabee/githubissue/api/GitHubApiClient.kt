@@ -23,6 +23,12 @@ class GitHubApiClient(private val token: String) {
     }
     
     /**
+     * Label data class for API responses
+     */
+    @Serializable
+    data class Label(val name: String)
+    
+    /**
      * Request body for creating a GitHub issue
      */
     @Serializable
@@ -154,9 +160,6 @@ class GitHubApiClient(private val token: String) {
                 val response = BufferedReader(InputStreamReader(connection.inputStream)).use { reader ->
                     reader.readText()
                 }
-                
-                @Serializable
-                data class Label(val name: String)
                 
                 val labels = json.decodeFromString<List<Label>>(response)
                 return labels.map { it.name }

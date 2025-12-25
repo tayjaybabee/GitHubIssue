@@ -92,8 +92,10 @@ class CreateGitHubIssueDialog(
                         updateMilestoneCombo()
                         updateLabelsTooltip()
                     }
-                } catch (e: Exception) {
-                    // Silently fail - user can still create issue without auto-complete
+                } catch (e: java.io.IOException) {
+                    // Network error - user can still create issue without auto-complete
+                } catch (e: kotlinx.serialization.SerializationException) {
+                    // JSON parsing error - user can still create issue without auto-complete
                 }
             }
         })
