@@ -1,4 +1,4 @@
-# IntelliJ Platform Plugin Template
+# GitHub Issue Creator Plugin
 
 [![official JetBrains project](https://jb.gg/badges/official.svg)][jb:github]
 [![Twitter Follow](https://img.shields.io/badge/follow-%40JBPlatform-1DA1F2?logo=twitter)](https://x.com/JBPlatform)
@@ -7,13 +7,44 @@
 ![IntelliJ Platform Plugin Template][file:intellij-platform-plugin-template-dark]
 ![IntelliJ Platform Plugin Template][file:intellij-platform-plugin-template-light]
 
-> [!NOTE]
-> Click the <kbd>Use this template</kbd> button and clone it in IntelliJ IDEA.
-
 <!-- Plugin description -->
-**IntelliJ Platform Plugin Template** is a repository that provides a pure template to make it easier to create a new plugin project (check the [Creating a repository from a template][gh:template] article).
+**GitHub Issue Creator** is a JetBrains IntelliJ/PyCharm plugin that allows you to create GitHub issues directly from your IDE.
 
-The main goal of this template is to speed up the setup phase of plugin development for both new and experienced developers by preconfiguring the project scaffold and CI, linking to the proper documentation pages, and keeping everything organized.
+## Features
+
+- **Auto-detect GitHub Repository**: Automatically detects the GitHub repository from your Git remote configuration
+- **Secure Token Storage**: Stores your GitHub Personal Access Token securely using IntelliJ's PasswordSafe
+- **Comprehensive Issue Creation**: Create issues with:
+  - Title
+  - Description/Body
+  - Labels
+  - Assignees
+  - Milestone
+- **Modular Architecture**: Clean package structure with separation of concerns (api, ui, auth, git)
+- **Error Handling**: Robust error handling throughout the plugin
+
+## Usage
+
+1. **Configure GitHub Token** (first time only):
+   - Go to `Tools > Create GitHub Issue`
+   - When prompted, enter your GitHub Personal Access Token
+   - Create a token at: https://github.com/settings/tokens (requires 'repo' scope)
+
+2. **Create an Issue**:
+   - Open a project with a GitHub repository
+   - Go to `Tools > Create GitHub Issue`
+   - Fill in the issue details
+   - Click OK to create the issue on GitHub
+
+## Architecture
+
+The plugin follows a modular structure:
+
+- `api/` - GitHub REST API client implementation
+- `ui/` - Dialog UI components
+- `auth/` - Authentication management with PasswordSafe
+- `git/` - Git repository detection
+- `actions/` - IntelliJ action implementations
 
 [gh:template]: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
 <!-- Plugin description end -->
